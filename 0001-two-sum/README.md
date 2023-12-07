@@ -36,3 +36,40 @@
 
 <p>&nbsp;</p>
 <strong>Follow-up:&nbsp;</strong>Can you come up with an algorithm that is less than <code>O(n<sup>2</sup>)</code><font face="monospace">&nbsp;</font>time complexity?</div>
+
+### ✔️나의 풀이
+
+```javascript
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    const resultIndex = {}
+
+    function onCheck(num) {
+        if(num in resultIndex) {
+           return; 
+        } 
+
+        resultIndex[num] = num
+        
+    }
+
+    for(let i = 0; i < nums.length; i++) {
+        for(let j = 0; j < nums.length; j++) {
+            if(nums[i] + nums[j] === target && i !== j) {
+                onCheck(j)
+            }
+        }
+    }
+    return Object.keys(resultIndex)
+};
+```
+1. 빈 객체를 만든다
+2. 2중 for문으로 두개의 값을 더해서 traget의 값과 같으면 oncheck 함수로 index를 인수로 전달했습니다.
+3. onCheck함수에서 받은 매개변수 num을 resultIndex 객체에서 해당 값이 있는지 체크하고 없으면 객체에 추가 없으면 함수 종료
+4. 반복문이 끝나면 resultIndex 추가된 최종 값을 배열형태로 만들어서 반환한다.
+
+- 문제점은 메모리는 덜 드는데 속도가 느리다.

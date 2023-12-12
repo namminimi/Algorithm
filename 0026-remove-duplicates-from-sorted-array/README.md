@@ -50,3 +50,32 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 	<li><code>nums</code> is sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
 </div>
+
+### 나의 풀이
+```javascript
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var removeDuplicates = function(nums) {
+    const numObject = {}
+    let count = 0;
+    let i = 0;
+    while(i < nums.length) {
+        if(`${nums[i]}` in numObject === false ) {
+            //console.log(`객체에 추가되는 ${nums[i]}`)
+            numObject[nums[i]] = nums[i]
+            i++;
+        }  else {
+            //console.log(`index${i} - count${count} = ${i - count}`)
+            //console.log(`제거 전${nums}`)
+            nums.splice(i , 1)
+            count += 1;
+            //console.log(`제거 후${nums}`)
+        }
+    }
+    return nums.length
+};
+```
+1. 객체를 활용해서 객체 안에 nums[i] 값이 없으면 추가하고 있으면 nums배열에서 해당 값을 삭제되게 코드 작성했습니다.
+2. 처음에는 for문과 forEach문을 활용해서 했는데 삭제했을 때 index가 밀리면서 원하는 값이 삭제가 안되는 문제점이 있었는데 이 문제를 해결하기 위해 while 문을 사용해서 객체에 num[i] 있을때 index값이 +1 이 되게끔 수정했습니다.

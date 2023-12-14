@@ -29,3 +29,72 @@
 	<li><code>1 &lt;= n &lt;= 45</code></li>
 </ul>
 </div>
+
+### 나의 풀이(다른 사람 풀이 해석)
+
+```javascript
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var climbStairs = function(n) {
+    let stairs = new Array(n).fill(0);
+    stairs[1] = 1;
+    stairs[2] = 2;
+    
+    for(let i = 3; i<= n; i++) {
+        stairs[i] = stairs[i-2] + stairs[i-1];
+    }
+    return stairs[n]
+};
+```
+```
+### 코드 해석
+n = 2 {
+  stairs = [0, 0 , 0]
+  stairs[1] = 1;
+  stairs[2] = 2;
+  stairs = [0, 1, 2]
+
+  i = 3, n = 2
+  for문 i <= n(3 <= 2) 조건 false
+
+  return stairs[n]  = n=2이므로 return 2
+}
+
+n = 3 {
+ stairs = [0, 0, 0, 0]
+ stairs[1] = 1;
+ stairs[2] = 2;
+ stairs = [0, 1, 2, 0]
+
+ i = 3, n = 3
+ for 문 i <= n(3 <= 3) 조건 true
+ stairs[i] = stairs[3-2](1) + stairs[3-1](2)
+ stairs[3] = 3
+}
+ stairs = [0, 1, 2, 3]
+ return stairs[n]  = n=3 이므로 return 3
+
+n = 4 {
+ stairs = [0, 0, 0, 0, 0]
+ stairs[1] = 1;
+ stairs[2] = 2;
+ stairs = [0, 1, 2, 0, 0]
+
+ i = 3, n = 4
+ for 문 i <= n(3 <= 4) 조건 true
+ stairs[i] = stairs[i-2]([3-2] = 1) + stairs[i-1]([3-1] = 2) 
+ stairs[3] = 3
+ stairs[i] = stairs[i-2]([4-2] = 2) + stairs[i-1]([4-1] = 3) 
+ stairs[4] = 5
+}
+ stairs = [0, 1, 2, 3, 5]
+ return stairs[n]  = n=4 이므로 return 5
+
+}
+```
+
+참고 자료
+1. https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
+2. https://eunjinii.tistory.com/124

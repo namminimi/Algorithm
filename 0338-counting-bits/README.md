@@ -39,3 +39,38 @@
 	<li>Can you do it without using any built-in function (i.e., like <code>__builtin_popcount</code> in C++)?</li>
 </ul>
 </div>
+
+### 나의 풀이
+```javascript
+var countBits = function(n) {
+    const result = []
+    
+    for(let i = 0; i <= n; i++) {
+       const binary = (i >>> 0).toString(2)
+       const binaryArry = `${binary}`.split("")
+       let count = 0;
+       binaryArry.forEach(num => {
+           if(num === "1") {
+               count+=1
+           }
+       })
+       
+       result.push(count)
+    }
+    return result
+    
+};
+```
+### 참고자료
+이진수 변경 https://devjiraynor.github.io/2022-04-09-js-bitwise/
+```javascript
+10진수 -> 2진수
+function dec2bin(dec){
+  return (dec >>> 0).toString(2);
+}
+
+2진수 -> 10진수
+function bin2dec(bin){
+  return parseInt(bin, 2).toString(10);
+}
+```

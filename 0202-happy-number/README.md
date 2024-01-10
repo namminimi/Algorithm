@@ -35,3 +35,29 @@
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 </div>
+
+나의 풀이(다른 사람 문제 풀이)
+```javascript
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isHappy = function(n) {
+    const arr = [];
+   
+    while (n !== 1) {
+        n = n.toString().split("").reduce((a, b) => a + b**2, 0);
+        console.log(arr)
+        console.log(n)
+        if (arr.indexOf(n) !== -1) return false;
+        arr.push(n)
+    }
+    return true
+};
+```
+1. n을 문자와 배열로 바꿔서 reduce를 사용하여 값을 구해준다 (1 + 81 = 82)
+2. 값이 구하고 n에 할당
+3. 조건문에서 arr 배열안에 n값이 있으면 return false 없으면 arr에 push
+4. n값이 1이 나온다면 반복문 종료하고 true 리턴
+
+참고 사이트 https://github.com/okcleff/LeetCode-Algorithm/blob/main/202-happy-number/202-happy-number.js

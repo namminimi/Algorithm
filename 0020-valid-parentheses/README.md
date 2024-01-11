@@ -35,3 +35,38 @@
 	<li><code>s</code> consists of parentheses only <code>'()[]{}'</code>.</li>
 </ul>
 </div>
+
+
+문제 풀이
+```javascript
+var isValid = function(s) {
+    let stack = [];
+    let map = {
+        ')': '(',
+        ']': '[',
+        '}': '{'
+    };
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === '(' || s[i] === '[' || s[i] === '{') {
+            stack.push(s[i]);
+        } else {
+            if (stack.pop() !== map[s[i]]) {
+                return false;
+            }
+        }
+    }
+
+    return stack.length === 0;
+};
+```
+
+처음에 정규표현식으로만 해결해보려했는데 잘 안돼서
+배열과 객체를 활용해서 해보았습니다.
+
+- 반복문을 실행하고
+- 매개변수 s의 인덱스에 (, [, { 일치하면 stack 배열에 추가하고 아니면 
+- stack.pop() 메서드를 사용해서 배열 마지막 요소 제거하고 출력도해줍니다
+-  요소값과 map 객체 s[i] 값이 일치하지 않으면 false를 반환합니다.
+- 위 조건이 일치하면 조건을 통과하지 않고 반복문을 실행하거나 s.length 길이까지의 조건을 도달하면 반복문이 종료되고
+- stack 배열은 빈배열이기 때문에 길이가 0과 일치하므로 true를 반환해줍니다

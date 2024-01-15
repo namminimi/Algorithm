@@ -31,3 +31,20 @@
 	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
 </ul>
 </div>
+
+### 나의 풀이
+```javascript
+var searchInsert = function(nums, target) {
+   const findNum = nums.findIndex(num => num === target)
+   if(findNum > -1) return findNum
+    
+   nums.push(target)
+   const rangeNums = nums.sort((a,b) => a - b);
+   const newFindNum = rangeNums.findIndex(num => num === target)
+   
+   return newFindNum
+};
+```
+
+1. findIndex 메서드를 사용하여 처음 배열값에 target이 있다면 index값을 반환하고 값이 존재하지않아 -1를 출력한다면
+2. 기존 배열에 target을 추가하여 정렬시키고 findIndex 메서드 사용하여 target이 된 배열에서 index 값을 반환해준다

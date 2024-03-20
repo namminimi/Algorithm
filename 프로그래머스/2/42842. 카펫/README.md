@@ -68,3 +68,37 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+### 처음 풀이
+약수 값을 이용해서 가로 세로의 값을 가져오려고했지만 
+
+4, 6, 7 번 통과를 하지 못했다
+
+![image](https://github.com/namminimi/Algorithm/assets/111848336/29a010f1-f0b4-43f9-9f7c-bcc6ce84c8cb)
+
+어떤값이 통과를 하지 못하는가 봤더니 brown + yellow 값이 24일 때 통과를 하지 못했다
+
+[18, 6]  => [6, 4] (x)
+
+[18, 6] => [8, 3] (0)
+
+그림을 그려서 비교해보았다 (그림이 아에 다름)
+
+8 * 3
+
+![KakaoTalk_20240320_140056112](https://github.com/namminimi/Algorithm/assets/111848336/9a559366-43bc-4c3b-a5d9-3674f22c764d)
+
+6 * 4(색칠한곳이 이상한데 안에 4칸만 색칠됨) 
+
+![KakaoTalk_20240320_140056112_01](https://github.com/namminimi/Algorithm/assets/111848336/59156e0d-0414-4aa6-9268-6fbb7b72760f)
+
+
+아래 링크를 참고해서 다시확인해봤더니
+몇가지 조건을 확인해야함
+
+- 카펫의 가로 세로 최소 길이는 3부터 시작    << 가로 세로 최소 3부터해야 노란색 칸을 넣을수 있음
+- x(가로) * y(세로)
+- (brown + yellow) / x = y
+- (x-2) * (y-2) === yellow                << 현재 문제일 때는 가로 세로 -2 칸씩 빼야 노란색 칸 값이 나옴 
+
+### 참고 링크 :  https://velog.io/@eldoradodo/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-JavaScript-%EC%B9%B4%ED%8E%AB

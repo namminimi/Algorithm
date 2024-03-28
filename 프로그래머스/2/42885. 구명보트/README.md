@@ -63,3 +63,8 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+
+### 참고 이미지
+
+![스크린샷 2024-03-27 184016](https://github.com/namminimi/Algorithm/assets/111848336/b818f60e-418d-4a00-b93e-d01b91f1b524)

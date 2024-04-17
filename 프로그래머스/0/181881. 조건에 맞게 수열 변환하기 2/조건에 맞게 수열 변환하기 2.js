@@ -24,12 +24,13 @@ function solution(arr) {
     
     while (true) {
         const next = transform(current);
-        answer++;
-         console.log(current)
+        
+         //console.log(current)
         if(arraysEqual(current, next)) {
-            return answer -1 ;
+            return answer;
         }
         current = next
+        answer++;
     }
    
 }

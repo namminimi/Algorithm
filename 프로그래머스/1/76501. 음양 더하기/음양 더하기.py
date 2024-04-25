@@ -1,11 +1,15 @@
 def solution(absolutes, signs):
-    answer = 123456789
-    new_array = []
-    for i,num in enumerate(absolutes):
-        print(i, num)
-        if signs[i]:
-            new_array.append(num)
+    answer = 0
+    #new_array = []
+    #for i,num in enumerate(absolutes):
+        #if signs[i]:
+            #new_array.append(num)
+        #else:
+            #new_array.append(-num)
+    #answer = sum(new_array)
+    for absolute, sign in zip(absolutes, signs):
+        if sign:
+            answer += absolute
         else:
-            new_array.append(-num)
-    answer = sum(new_array)
+            answer -= absolute
     return answer
